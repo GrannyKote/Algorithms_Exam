@@ -44,6 +44,7 @@ def get_levenshtein_distance(s1, s2):
     for i, c1 in enumerate(s1):
         current_row = [i + 1]
         for j, c2 in enumerate(s2):
+            # установка стоимости замены, равной 2, по аналогии с функцией ratio библиотеки levestein
             if c1 != c2:
                 cost = 2
             else:
@@ -63,7 +64,7 @@ def compare_files(similarity_threshold_value: float, use_preprocessing_value: bo
     first_file_dictionary = get_file_dictionary("Укажите расположение первого файла для сравнения: ")
     second_file_dictionary = get_file_dictionary("Укажите расположение второго файла для сравнения: ")
     destination_folder_path = input("Укажите директорию для добавления выходного файла: ")
-    destination_file_path = destination_folder_path + result_file_name
+    destination_file_path = destination_folder_path + "\\" + result_file_name
  
     # предобработка исходных данных, если указан соответсвующий флаг
     if use_preprocessing_value:
